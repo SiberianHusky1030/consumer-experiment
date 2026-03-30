@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script src="data-tracker.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件A - 隐私指引</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 底层闪屏页（Splash Screen） -->
+    <div class="splash-screen">
+        <img src="img/software-a.png" class="logo" alt="软件A Logo">
+        <div class="slogan">轻遇美好，慢看生活</div> <!-- 替换成你选的Slogan -->
+    </div>
+
+    <!-- 隐私弹窗（默认隐藏，0.5秒后弹出） -->
+    <div class="privacy-modal">
+        <div class="modal-content">
+            <h2 class="modal-title">个人信息保护指引</h2>
+            <div class="privacy-content">
+                <p>欢迎使用软件A！我们将通过《用户服务协议》和《基础服务数据处理规则》帮助你了解我们为你提供的基础服务，及保障该服务正常运行所必需的信息。</p>
+                <p>根据《常见类型移动互联网应用程序必要个人信息范围规定》，软件A为短视频类App，基本功能为“不超过一定时长的视频搜索、播放”。我们在该基本功能基础上结合用户日常使用情况，提供“基础服务”，点击下方“同意”按钮仅代表你同意使用本产品的基础服务，并同意我们基于提供该等服务收集、处理必要的个人信息及数据。</p>
+                <p>为了向你提供更丰富优质的服务，我们在基础服务之外为你提供购买商品和服务等扩展服务。针对扩展服务所需的个人信息收集及处理，我们会在你使用具体服务时获取你的相应同意；如果你拒绝提供，你可能无法使用相应的扩展服务，但不影响你使用我们的基础服务。我们通过《隐私政策》帮助你全面了解我们的服务及收集、处理个人信息的详细情况。</p>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-disagree" onclick="handleDisagree()">不同意</button>
+                <button class="btn-agree" id="agreeBtn" onclick="handleAgree()">同意</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+// 隐私页加载完成，开始记录停留时间（新增）
+window.onload = function() {
+    startPageTimer('page3');
+};
+
+// 隐私页关闭/跳转时，结束记录（新增）
+window.onbeforeunload = function() {
+    endPageTimer('page3');
+};
+
+    </script>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

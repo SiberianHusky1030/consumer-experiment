@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script src="data-tracker.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>软件A - 沉浸式视频流</title>
+    <!-- 引入全局样式，第五页样式已做隔离 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 第五页专属容器（隔离前四页） -->
+    <div class="page5-container">
+        <!-- 顶部导航栏 -->
+        <div class="page5-top-nav">
+            <img src="img/menu-icon.png" alt="功能菜单" class="page5-nav-icon page5-menu-icon">
+            <span class="page5-nav-text">精选</span>
+            <span class="page5-nav-text">直播</span>
+            <span class="page5-nav-text">关注</span>
+            <span class="page5-nav-text page5-active">推荐</span>
+            <img src="img/search-icon.png" alt="搜索" class="page5-nav-icon page5-search-icon">
+        </div>
+
+
+
+
+        <!-- 视频核心播放区 -->
+        <div class="page5-video-wrapper" id="page5-videoWrapper">
+            <!-- 视频播放器 -->
+            <video 
+                id="page5-videoPlayer" 
+                class="page5-video-player"
+                loop
+                playsinline
+                webkit-playsinline
+                preload="auto">
+            </video>
+            <!-- 暂停图标（初始显示） -->
+            <img src="img/pause-icon.png" alt="暂停" class="page5-pause-icon" id="page5-pauseIcon">
+            <!-- 左下角视频信息 -->
+            <div class="page5-video-info">
+                <div class="page5-author-nick" id="page5-authorNick">@默认作者</div>
+                <div class="page5-video-desc" id="page5-videoDesc">默认视频文案 #软件A #沉浸式体验</div>
+            </div>
+        </div>
+
+        <!-- 右侧垂直交互栏已移除 -->
+
+        <!-- 底部导航栏 -->
+        <div class="page5-bottom-nav">
+            <span class="page5-bottom-text page5-active">首页</span>
+            <span class="page5-bottom-text">朋友</span>
+            <img src="img/create-icon.png" alt="拍摄" class="page5-bottom-icon">
+            <span class="page5-bottom-text">消息</span>
+            <span class="page5-bottom-text">我</span>
+        </div>
+    </div>
+
+    <!-- 第五页专属JS（隔离前四页） -->
+    <script>
+        // 确保DOM加载完成后执行，且仅作用于第五页
+        document.addEventListener('DOMContentLoaded', function() {
+            // ========== 1. 初始化核心变量 ==========
+            const videoWrapper = document.getElementById('page5-videoWrapper');
+            const videoPlayer = document.getElementById('page5-videoPlayer');
+            const pauseIcon = document.getElementById('page5-pauseIcon');
+            // 右侧交互相关元素已移除
+            
+            let currentIndex = 0; // 当前视频索引（0-9）
+            let currentVideoId = 'video1';
+            let isPlaying = false; // 视频播放状态
+            // 点赞/收藏相关变量已移除
+            let startY = 0; // 滑动起始Y坐标
+            let moveY = 0; // 滑动实时Y坐标
+            let isDragging = false; // 是否正在拖动
+
+            // 点赞/收藏本地存储及初始化逻辑已移除
+
+
+
+// 第五页数据记录与上传相关逻辑已全部移除
+
+            // ========== 2. 10个视频配置（按需修改路径/信息） ==========
+            const videoList = [
+                {
+                    id: 'video1',
+                    src: "video/video1.mp4",
+                    avatar: "img/avatar1.png",
+                    nick: "@南秋风",
+                    desc: "“该怎么去形容此刻雨中的西湖呢” #摄影 #inmyfeelings #电影感 #氛围 #西湖",
+                    like: 128,
+                    comment: 15,
+                    collect: 8,
+                    share: 5
+                },
+                {
+                    id: 'video2',
+                    src: "video/video2.mp4",
+                    avatar: "img/avatar2.png",
+                    nick: "@小羊",
+                    desc: "你看 世界如此辽阔 #丝路甘孜川西秘境 #川西美景 #贡嘎雪山 #日照金山",
+                    like: 356,
+                    comment: 42,
+                    collect: 23,
+                    share: 18
+                },
+                {
+                    id: 'video3',
+                    src: "video/video3.mp4",
+                    avatar: "img/avatar3.png",
+                    nick: "@给三七埋屎的平安",
+                    desc: "镜头感挺好呀～#虎斑喵 #萌宠出道计划 #美短虎斑猫 #萌宠计划",
+                    like: 289,
+                    comment: 31,
+                    collect: 17,
+                    share: 12
+                },
+                {
+                    id: 'video4',
+                    src: "video/video4.mp4",
+                    avatar: "img/avatar4.png",
+                    nick: "@Fortune",
+                    desc: "“于是我开始爱山爱水”#冰岛 #inmyfeeling",
+                    like: 567,
+                    comment: 68,
+                    collect: 45,
+                    share: 32
+                },
+                {
+                    id: 'video5',
+                    src: "video/video5.mp4",
+                    avatar: "img/avatar5.png",
+                    nick: "@凉月",
+                    desc: "觉得人群太吵，就来瓦纳卡湖边坐一会 #新西兰 #治愈系风景",
+                    like: 198,
+                    comment: 22,
+                    collect: 11,
+                    share: 7
+                },
+                {
+                    id: 'video6',
+                    src: "video/video6.mp4",
+                    avatar: "img/avatar6.png",
+                    nick: "@小迷",
+                    desc: "听说南迦巴瓦峰十人九不遇 #雪山 #西藏 #治愈系风景 #我们的可颂时刻",
+                    like: 245,
+                    comment: 18,
+                    collect: 9,
+                    share: 6
+                },
+                {
+                    id: 'video7',
+                    src: "video/video7.mp4",
+                    avatar: "img/avatar7.png",
+                    nick: "@七号涂层#7",
+                    desc: "路很长 像电影的开头还是结尾 #电影感",
+                    like: 176,
+                    comment: 14,
+                    collect: 7,
+                    share: 4
+                },
+                {
+                    id: 'video8',
+                    src: "video/video8.mp4",
+                    avatar: "img/avatar8.png",
+                    nick: "@NyX",
+                    desc: "我这样的人 会和什么样的人拥有以后呢 #纽约 #inmyfeelings #拍出电影感",
+                    like: 312,
+                    comment: 27,
+                    collect: 15,
+                    share: 10
+                },
+                {
+                    id: 'video9',
+                    src: "video/video9.mp4",
+                    avatar: "img/avatar9.png",
+                    nick: "@Raison",
+                    desc: "人生是在做减法，所以请珍惜当下 #拍出电影感 #氛围感 #每个镜头都有它的故事",
+                    like: 423,
+                    comment: 51,
+                    collect: 29,
+                    share: 21
+                },
+                {
+                    id: 'video10',
+                    src: "video/video10.mp4",
+                    avatar: "img/avatar10.png",
+                    nick: "@阵雨",
+                    desc: "把阳光装进家里，心情就自动调成了温暖模式词 #温馨 #院子 #治愈 #居住关键",
+                    like: 156,
+                    comment: 19,
+                    collect: 6,
+                    share: 3
+                }
+            ];
+
+            
+
+
+            
+
+            // ========== 3. 渲染当前视频 ==========
+            function renderVideo(index) {
+                const video = videoList[index];
+                currentVideoId = video.id;
+                // 更新视频源
+                videoPlayer.src = video.src;
+                videoPlayer.load();
+                // 自动播放（处理浏览器策略）
+                videoPlayer.play().then(() => {
+                    isPlaying = true;
+                    pauseIcon.style.display = 'none';
+                }).catch(err => {
+                    console.log("自动播放需用户交互：", err);
+                    isPlaying = false;
+                    pauseIcon.style.display = 'block';
+                });
+                // 更新视频信息
+                // 右侧交互栏相关DOM操作已移除
+                document.getElementById('page5-authorNick').innerText = video.nick;
+                document.getElementById('page5-videoDesc').innerText = video.desc;
+            }
+
+            // ========== 4. 视频暂停/播放逻辑 ==========
+function togglePlay() {
+    if (isPlaying) {
+        videoPlayer.pause();
+        pauseIcon.style.display = 'block';
+        isPlaying = false;
+    } else {
+        videoPlayer.play();
+        pauseIcon.style.display = 'none';
+        isPlaying = true;
+    }
+}
+// 单击视频触发暂停/播放（手机端兼容优化）
+videoWrapper.addEventListener('click', function(e) {
+    // 排除点击右侧交互栏 + 修复手机端点击穿透问题
+    if (e.target.closest('.page5-right-bar') || e.target.closest('.page5-top-nav') || e.target.closest('.page5-bottom-nav')) {
+        return;
+    }
+    // 防止手机端事件冒泡，强制触发播放/暂停
+    e.preventDefault();
+    togglePlay();
+});
+// 额外兼容：手机端触摸事件（部分浏览器click失效时备用）
+videoWrapper.addEventListener('touchend', function(e) {
+    if (e.target.closest('.page5-right-bar') || e.target.closest('.page5-top-nav') || e.target.closest('.page5-bottom-nav')) {
+        return;
+    }
+    e.preventDefault();
+    togglePlay();
+});
+
+
+
+// 点赞/收藏相关交互与逻辑已全部移除
+
+          
+            // ========== 7. 无缝滑动切换视频 ==========
+            // 触摸开始
+            videoWrapper.addEventListener('touchstart', function(e) {
+                startY = e.touches[0].clientY;
+                isDragging = true;
+                videoWrapper.style.transition = 'none'; // 取消过渡，实时跟随
+            });
+            // 触摸移动
+            videoWrapper.addEventListener('touchmove', function(e) {
+                if (!isDragging) return;
+                moveY = e.touches[0].clientY;
+                const diff = moveY - startY;
+                // 实时拖动效果（抖音式）
+                videoWrapper.style.transform = `translateY(${diff}px)`;
+                // 限制拖动距离
+                if (Math.abs(diff) > 200) {
+                    videoWrapper.style.transform = `translateY(${Math.sign(diff) * 200}px)`;
+                }
+            });
+            // 触摸结束
+            videoWrapper.addEventListener('touchend', function(e) {
+                isDragging = false;
+                videoWrapper.style.transition = 'transform 0.3s ease-out'; // 恢复过渡
+                const diff = e.changedTouches[0].clientY - startY;
+                // 上滑（手指从下往上）→ 下一个视频
+                if (diff < -50) {
+                    currentIndex = (currentIndex + 1) % 10;
+                    renderVideo(currentIndex);
+                }
+                // 下滑（手指从上往下）→ 上一个视频
+                else if (diff > 50) {
+                    currentIndex = (currentIndex - 1 + 10) % 10;
+                    renderVideo(currentIndex);
+                }
+                // 回弹
+                videoWrapper.style.transform = 'translateY(0px)';
+            });
+
+            // ========== 8. 初始化 ==========
+            renderVideo(currentIndex);
+        });
+
+        // ========== 新增：横竖屏切换适配 ==========
+function adaptVideoSize() {
+    // 强制视频重绘，适配新的屏幕尺寸
+    const videoPlayer = document.getElementById('page5-videoPlayer');
+    const currentSrc = videoPlayer.src;
+    videoPlayer.src = currentSrc;
+    videoPlayer.load();
+    // 保持播放状态
+    if (isPlaying) {
+        videoPlayer.play().catch(() => {});
+    }
+}
+
+// 监听屏幕旋转事件
+window.addEventListener('orientationchange', adaptVideoSize);
+// 监听窗口大小变化（PC端调试）
+window.addEventListener('resize', adaptVideoSize);
+    </script>
+</body>
+</html>

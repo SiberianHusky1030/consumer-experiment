@@ -1,0 +1,1085 @@
+/* 用户名输入框样式，风格与手机号、验证码输入框一致 */
+.username-group {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 24px;
+}
+.username-input {
+    width: 100%;
+    height: 48px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+    background: transparent;
+    padding-left: 0;
+}
+.username-input:focus {
+    border-bottom: 1px solid #00c853;
+}
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 微软雅黑, PingFang SC;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    background: #f5f5f5;
+}
+
+/* 顶部导航栏 */
+/* 顶部导航栏 */
+.top-nav {
+  background: white;
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.search-icon, .download-icon {
+  font-size: 18px;
+  color: #666;
+}
+
+.search-bar-wrapper input {
+  flex: 1;
+  height: 36px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 18px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: #999;
+}
+
+.tab-bar {
+  display: flex;
+  justify-content: center; /* 让三个Tab在页面居中 */
+  gap: 40px;
+}
+
+.tab-item {
+  font-size: 16px;
+  color: #999;
+  padding: 5px 0;
+  position: relative; /* 为下划线做定位 */
+}
+
+.tab-item.active {
+  color: #ff6700; /* 橘红色 */
+  font-weight: bold;
+}
+
+/* 榜单下面的橘红色加粗横线 */
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff6700; /* 橘红色 */
+}
+
+/* APP列表 */
+.app-list {
+    background: white;
+    margin-top: 10px;
+}
+
+.app-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.rank {
+  width: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: normal;
+  color: #333;
+  margin-right: 10px;
+}
+
+.rank-top3 {
+  font-weight: bold;
+  color: #ff6700; /* 橘红色 */
+}
+
+.app-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    margin-right: 16px;
+}
+
+.app-info {
+    flex: 1;
+}
+
+.app-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.app-desc {
+    font-size: 12px;
+    color: #999;
+}
+
+/* APP按钮样式 */
+.app-btn {
+    width: 60px;
+    height: 32px;
+    border: none;
+    border-radius: 16px;
+    font-size: 14px;
+}
+
+.app-btn.open {
+    background: white;
+    color: #00C853;
+    border: 1px solid #00C853;
+}
+
+.app-btn.update {
+    background: white;
+    color: #ff9800;
+    border: 1px solid #ff9800;
+}
+
+.app-btn.install {
+    background: #00C853;
+    color: white;
+}
+
+/* Toast提示 */
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 绝对居中 */
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 12px 20px; /* 增加内边距，让文字更舒展 */
+    border-radius: 8px;
+    font-size: 14px;
+    display: none;
+    z-index: 999;
+    max-width: 80%; /* 限制最大宽度，避免文字太宽 */
+    text-align: center; /* 关键：文字水平居中，换行后也居中 */
+    white-space: normal; /* 允许文字换行（默认是nowrap，取消掉） */
+}
+
+
+/* 底部导航 */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  display: flex;
+  justify-content: center; /* 三个图标在页面居中 */
+  gap: 60px;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.nav-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+/* 详情页Header */
+.detail-header {
+    background: white;
+    padding: 10px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.back-btn {
+    font-size: 20px;
+    color: #333;
+}
+
+.header-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.app-info-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.app-large-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+}
+
+.app-title-info {
+    flex: 1;
+}
+
+.app-name-large {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.app-developer {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.app-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    font-size: 12px;
+    color: #00C853;
+    background: #e8f5e9;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.app-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Tab切换栏 */
+.tab-bar {
+    display: flex;
+    background: white;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 16px;
+    color: #666;
+    position: relative;
+}
+
+.tab-item.active {
+    color: #ff6700;
+    font-weight: bold;
+}
+
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 2px;
+    background: #ff6700;
+}
+
+/* Tab内容区域 */
+.tab-content {
+    display: none;
+    padding: 16px;
+    background: white;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.screenshots {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    margin-bottom: 15px;
+}
+
+.screenshot {
+    width: 240px;
+    height: 160px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.app-intro {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.app-version-info {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* 评论区评分板 */
+.score-board {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.score-main {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff6700;
+}
+
+.score-info {
+    flex: 1;
+}
+
+.score-count {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.star-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.star-bar {
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+}
+
+.star-bar:first-child {
+    background: #00C853;
+}
+
+/* 评论筛选栏 */
+.comment-filters {
+    display: flex;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.filter {
+    font-size: 14px;
+    color: #666;
+    padding: 4px 12px;
+    border-radius: 16px;
+    background: #f5f5f5;
+}
+
+.filter.active {
+    background: #00C853;
+    color: white;
+}
+
+/* 评论列表 */
+.comment-list {
+    padding: 10px 0;
+}
+
+.comment-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.comment-time {
+    font-size: 12px;
+    color: #999;
+}
+
+.comment-like {
+    font-size: 14px;
+    color: #666;
+}
+
+.comment-stars {
+    color: #ff6700;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.comment-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 底部操作栏 */
+.bottom-action-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 10px 16px;
+    border-top: 1px solid #eee;
+}
+
+.install-btn {
+    width: 100%;
+    height: 48px;
+    background: #00C853;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 下载进度条样式 */
+.progress-container {
+    width: 100%;
+    height: 48px;
+    background: #00a848;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #00C853;
+    transition: width 0.3s linear;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 返回按钮里的图标样式 */
+.back-icon {
+  width: 15px;    /* 调整图标宽度，根据你图片大小改 */
+  height: 15px;   /* 高度和宽度保持一致，避免变形 */
+  vertical-align: middle;  /* 让图标和旁边文字垂直居中 */
+}
+
+/* 保持返回按钮的点击区域 */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+
+/* 全局重置（确保页面铺满屏幕） */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 闪屏页样式 */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* 全黑背景 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.slogan {
+    font-size: 20px;
+    color: #e0e0e0;
+    font-weight: 300;
+}
+
+/* 隐私弹窗样式 */
+.privacy-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* 半透明遮罩 */
+    display: none; /* 默认隐藏 */
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #f0f7f0; /* 浅绿底色，贴合小清新风格 */
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 400px;
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 18px 0;
+    color: #222;
+}
+
+.privacy-content {
+    flex: 1;
+    overflow-y: auto; /* 超出部分滚动 */
+    line-height: 1.7;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-right: 10px; /* 避免滚动条遮挡文字 */
+    text-indent: 2em;
+}
+
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-disagree {
+    background-color: #e8e8e8;
+    color: #999;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-agree {
+    background-color: #00c853;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* 同意按钮置灰状态（B组初始状态） */
+.btn-agree:disabled {
+    background-color: #a5d6a7;
+    color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+
+
+/* 登录页全局样式 */
+.login-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 24px 40px;
+    position: relative;
+    background: #fff;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    color: #333;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-header {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    font-size: 16px;
+    color: #999;
+}
+
+.input-group {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.phone-group {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.phone-prefix {
+    font-size: 18px;
+    color: #333;
+    padding-right: 12px;
+    border-right: 1px solid #e5e5e5;
+    margin-right: 12px;
+}
+
+.phone-input {
+    flex: 1;
+    height: 48px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+}
+
+.phone-input:focus {
+    border-bottom: 1px solid #00c853;
+}
+
+.code-group {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.code-input {
+    width: 100%;
+    height: 48px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+    padding-left: 0;
+}
+
+.code-input:focus {
+    border-bottom: 1px solid #00c853;
+}
+
+.agreement-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.agreement-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: #00c853;
+    cursor: pointer;
+}
+
+.agreement-text {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-left: 8px;
+    flex: 1;
+}
+
+.agreement-link {
+    color: #00c853;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.action-btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:disabled {
+    background-color: #e8e8e8;
+    color: #b3b3b3;
+    cursor: not-allowed;
+}
+
+.action-btn:not(:disabled) {
+    background-color: #00c853;
+    color: #fff;
+}
+
+/* 短信通知弹窗（适配手机端换行显示） */
+.notification {
+    position: fixed;
+    top: -60px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 14px 24px; /* 充足内边距，换行后不挤 */
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    max-width: 85%; /* 缩小最大宽度，适配手机屏幕 */
+    min-width: 240px; /* 最小宽度适配小屏手机 */
+    text-align: center; /* 文字居中 */
+    opacity: 0;
+    /* 关键：删除 white-space: nowrap，允许文字自动换行 */
+    line-height: 1.5; /* 增加行高，换行后更易读 */
+}
+
+.notification.show {
+    top: 20px;
+    opacity: 1;
+}
+
+/* 错误提示弹窗 */
+.error-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center; /* 核心：文字居中 */
+    max-width: 80%; /* 可选：限制宽度，避免文字过长撑满屏幕 */
+}
+
+.error-toast.show {
+    opacity: 1;
+}
+
+
+.action-btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* 默认不可用状态样式 */
+    background-color: #e8e8e8;
+    color: #b3b3b3;
+}
+
+/* 可用状态样式（手机号+协议都满足） */
+.action-btn.active {
+    background-color: #00c853;
+    color: #fff;
+}
+
+
+
+/* ========== 第五页视频适配（抖音终极版：左右无黑框+上下可黑框） ========== */
+.page5-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #000; /* 上下黑框区域填充黑色 */
+    font-family: -apple-system, PingFang SC, Helvetica Neue, sans-serif;
+    z-index: 1;
+}
+
+/* 顶部/底部/右侧栏样式保留不变，仅修改视频核心样式 */
+.page5-top-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    background: rgba(0,0,0,0.2);
+    z-index: 9999; /* 修复：提升层级，不被视频覆盖 */
+}
+.page5-nav-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+.page5-menu-icon {
+    margin-right: 16px;
+}
+.page5-search-icon {
+    margin-left: 16px;
+}
+.page5-nav-text {
+    color: #fff;
+    font-size: 16px;
+    margin: 0 8px;
+}
+.page5-nav-text.page5-active {
+    font-weight: bold;
+    position: relative;
+}
+.page5-nav-text.page5-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: #fff;
+}
+
+/* 视频核心容器（关键：左右无黑框，上下可黑框） */
+.page5-video-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center; /* 视频垂直居中（上下黑框对称） */
+    justify-content: center; /* 视频水平居中（但宽度强制100vw，左右无黑框） */
+}
+/* 视频播放器（抖音终极适配逻辑） */
+.page5-video-player {
+    width: 100vw; /* 强制左右铺满，无黑框 */
+    max-height: 100vh; /* 上下最多铺满屏幕，不超出 */
+    object-fit: cover; /* 核心：左右铺满，上下完整则留黑框，超出则裁剪（仅极端情况） */
+    object-position: center; /* 裁剪/居中时始终保留画面中心 */
+    z-index: 1; /* 修复：降低视频层级，最底层 */
+}
+
+/* 暂停图标（居中显示） */
+.page5-pause-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    opacity: 0.7;
+    z-index: 9999; /* 修复：最高层级，可点击可见 */
+}
+/* 左下角视频信息 */
+.page5-video-info {
+    position: absolute;
+    bottom: 80px;
+    left: 16px;
+    z-index: 9999; /* 修复：提升层级 */
+}
+.page5-author-nick {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.page5-video-desc {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* 右侧垂直交互栏 */
+.page5-right-bar {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    opacity: 0.9;
+    z-index: 9999; /* 修复：提升层级，可点击 */
+}
+.page5-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+.page5-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.page5-bar-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 4px;
+}
+.page5-bar-num {
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 0 0 4px rgba(0,0,0,0.7);
+}
+
+/* 底部导航栏 */
+.page5-bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: rgba(0,0,0,0.8);
+    z-index: 9999; /* 修复：提升层级 */
+}
+.page5-bottom-text {
+    color: #999;
+    font-size: 14px;
+    position: relative;
+}
+.page5-bottom-text.page5-active {
+    color: #fff;
+    font-weight: bold;
+}
+.page5-bottom-text.page5-active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: #fff;
+}
+.page5-bottom-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/* 禁止选中文字 + 横竖屏适配 */
+.page5-container * {
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+}
+/* 横竖屏切换时强制适配 */
+@media screen and (orientation: landscape) {
+    .page5-video-player {
+        width: 100vw;
+        max-height: 100vh;
+    }
+}
+@media screen and (orientation: portrait) {
+    .page5-video-player {
+        width: 100vw;
+        max-height: 100vh;
+    }
+}

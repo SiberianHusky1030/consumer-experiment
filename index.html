@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script src="data-tracker.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>应用商店</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 顶部导航栏 -->
+<div class="top-nav">
+  <div class="search-bar-wrapper">
+    <span class="search-icon">🔍</span>
+    <input type="text" placeholder="" disabled>
+    <span class="download-icon">⬇️</span>
+  </div>
+  <div class="tab-bar">
+    <span class="tab-item">推荐</span>
+    <span class="tab-item active">榜单</span>
+    <span class="tab-item">必备</span>
+  </div>
+</div>
+
+    
+<!-- APP列表 -->
+<div class="app-list">
+  <!-- 1. 豆包（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank rank-top3">1</span>
+    <img src="img/doubao.png" class="app-icon" alt="豆包">
+    <div class="app-info">
+      <div class="app-name">豆包</div>
+      <div class="app-desc">3.3分 | AI助手</div>
+    </div>
+    <button class="app-btn install" onclick="showToast()">安装</button>
+  </div>
+
+  <!-- 2. 夸克（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank rank-top3">2</span>
+    <img src="img/kuaq.png" class="app-icon" alt="夸克">
+    <div class="app-info">
+      <div class="app-name">夸克</div>
+      <div class="app-desc">4.7分 | 浏览器</div>
+    </div>
+    <button class="app-btn install" onclick="showToast()">安装</button>
+  </div>
+
+  <!-- 3. 抖音（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank rank-top3">3</span>
+    <img src="img/douyin.png" class="app-icon" alt="抖音">
+    <div class="app-info">
+      <div class="app-name">抖音</div>
+      <div class="app-desc">3.9分 | 短视频·AR·视频播放</div>
+    </div>
+    <button class="app-btn install" onclick="showToast()">安装</button>
+  </div>
+
+  <!-- 4. 微信（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">4</span>
+    <img src="img/wechat.png" class="app-icon" alt="微信">
+    <div class="app-info">
+      <div class="app-name">微信</div>
+      <div class="app-desc">4.0分 | 交友·聊天社交</div>
+    </div>
+    <button class="app-btn open" onclick="showToast()">打开</button>
+  </div>
+
+  <!-- 5. QQ（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">5</span>
+    <img src="img/qq.png" class="app-icon" alt="QQ">
+    <div class="app-info">
+      <div class="app-name">QQ</div>
+      <div class="app-desc">3.8分 | 交友·聊天社交</div>
+    </div>
+    <button class="app-btn update" onclick="showToast()">更新</button>
+  </div>
+
+  <!-- 6. 软件A（实验目标） -->
+<div class="app-item" onclick="goToDetailPage()">
+    <span class="rank">6</span>
+    <img src="img/software-a.png" class="app-icon" alt="软件A">
+    <div class="app-info">
+        <div class="app-name">软件A</div>
+        <div class="app-desc">4.0分 | 短视频·AR·视频播放</div>
+    </div>
+    <button class="app-btn install" onclick="goToDetailPage()">安装</button>
+</div>
+
+  <!-- 7. 快手（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">7</span>
+    <img src="img/kuaishou.png" class="app-icon" alt="快手">
+    <div class="app-info">
+      <div class="app-name">快手</div>
+      <div class="app-desc">4.4分 | 短视频·视频播放</div>
+    </div>
+    <button class="app-btn update" onclick="showToast()">更新</button>
+  </div>
+
+  <!-- 8. 小红书（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">8</span>
+    <img src="img/xiaohongshu.png" class="app-icon" alt="小红书">
+    <div class="app-info">
+      <div class="app-name">小红书</div>
+      <div class="app-desc">4.2分 | 综合社区·社区</div>
+    </div>
+    <button class="app-btn install" onclick="showToast()">安装</button>
+  </div>
+
+  <!-- 9. 拼多多（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">9</span>
+    <img src="img/pinduoduo.png" class="app-icon" alt="拼多多">
+    <div class="app-info">
+      <div class="app-name">拼多多</div>
+      <div class="app-desc">3.7分 | 特价商城·省钱购物</div>
+    </div>
+    <button class="app-btn open" onclick="showToast()">打开</button>
+  </div>
+
+  <!-- 10. 哔哩哔哩（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">10</span>
+    <img src="img/bilibili.png" class="app-icon" alt="哔哩哔哩">
+    <div class="app-info">
+      <div class="app-name">哔哩哔哩</div>
+      <div class="app-desc">4.7分 | 播放器·长视频</div>
+    </div>
+    <button class="app-btn install" onclick="showToast()">安装</button>
+  </div>
+
+  <!-- 11. 汽水音乐（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">11</span>
+    <img src="img/qishui.png" class="app-icon" alt="汽水音乐">
+    <div class="app-info">
+      <div class="app-name">汽水音乐</div>
+      <div class="app-desc">4.1分 | 在线音乐·音乐电台</div>
+    </div>
+    <button class="app-btn install" onclick="showToast()">安装</button>
+  </div>
+
+  <!-- 12. 京东（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">12</span>
+    <img src="img/jingdong.png" class="app-icon" alt="京东">
+    <div class="app-info">
+      <div class="app-name">京东</div>
+      <div class="app-desc">3.4分 | 综合商城·在线商城</div>
+    </div>
+    <button class="app-btn open" onclick="showToast()">打开</button>
+  </div>
+
+  <!-- 13. 淘宝（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">13</span>
+    <img src="img/taobao.png" class="app-icon" alt="淘宝">
+    <div class="app-info">
+      <div class="app-name">淘宝</div>
+      <div class="app-desc">4.4分 | 综合商城·在线商城</div>
+    </div>
+    <button class="app-btn update" onclick="showToast()">更新</button>
+  </div>
+
+  <!-- 14. 高德地图（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">14</span>
+    <img src="img/gaode.png" class="app-icon" alt="高德地图">
+    <div class="app-info">
+      <div class="app-name">高德地图</div>
+      <div class="app-desc">4.7分 | 地图导航·旅行交通</div>
+    </div>
+    <button class="app-btn update" onclick="showToast()">更新</button>
+  </div>
+
+  <!-- 15. 支付宝（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">15</span>
+    <img src="img/alipay.png" class="app-icon" alt="支付宝">
+    <div class="app-info">
+      <div class="app-name">支付宝</div>
+      <div class="app-desc">3.1分 | 综合服务·同城生活</div>
+    </div>
+    <button class="app-btn open" onclick="showToast()">打开</button>
+  </div>
+
+  <!-- 16. 网易云音乐（干扰项） -->
+  <div class="app-item" onclick="showToast()">
+    <span class="rank">16</span>
+    <img src="img/wangyiyun.png" class="app-icon" alt="网易云音乐">
+    <div class="app-info">
+      <div class="app-name">网易云音乐</div>
+      <div class="app-desc">4.7分 | 在线音乐·音乐电台</div>
+    </div>
+    <button class="app-btn update" onclick="showToast()">更新</button>
+  </div>
+</div>
+
+
+
+    <!-- Toast提示框 -->
+    <div class="toast" id="toast">请根据实验指引下载指定APP</div>
+
+   <script>
+    window.onload = function() {
+            startPageTimer('page1');
+        };
+        // 2. 页面关闭/跳走时，结束记录（兜底，防止用户直接关页面）
+        window.onbeforeunload = function() {
+            endPageTimer('page1');
+        };
+
+   </script>
+
+
+    <script src="script.js"></script>
+
+
+    <!-- 底部导航 -->
+<div class="bottom-nav">
+  <div class="nav-item">
+    <span class="nav-icon">🏠</span>
+    <span>首页</span>
+  </div>
+  <div class="nav-item">
+    <span class="nav-icon">🎮</span>
+    <span>游戏</span>
+  </div>
+  <div class="nav-item">
+    <span class="nav-icon">👤</span>
+    <span>我的</span>
+  </div>
+</div>
+</body>
+</html>

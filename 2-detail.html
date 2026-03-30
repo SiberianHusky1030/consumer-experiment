@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script src="data-tracker.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件A详情</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 顶部Header区域 -->
+    <div class="detail-header">
+        <div class="header-top">
+            <span class="back-btn" onclick="window.location.href = 'index.html'">
+             <img src="img/back-arrow.png" alt="返回" class="back-icon">
+            </span>
+            <div class="header-icons">
+                <span>🔍</span>
+                <span>⬇️</span>
+                <span>⋮</span>
+            </div>
+        </div>
+        <div class="app-info-header">
+            <img src="img/software-a.png" class="app-large-icon" alt="软件A">
+            <div class="app-title-info">
+                <div class="app-name-large">软件A</div>
+                <div class="app-developer">北京软件A科技有限公司</div>
+                <div class="app-tags">
+                    <span class="tag">短视频</span>
+                    <span class="tag">AR</span>
+                    <span class="tag">视频播放</span>
+                </div>
+            </div>
+        </div>
+        <div class="app-stats">
+            <div class="stat-item">
+                <div class="stat-value">4.0</div>
+                <div class="stat-label">评分</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">2000万+</div>
+                <div class="stat-label">下载次数</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">182MB</div>
+                <div class="stat-label">大小</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">第6名</div>
+                <div class="stat-label">短视频</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab切换栏（详情/评论） -->
+    <div class="tab-bar">
+        <div class="tab-item active" onclick="switchTab('detail')">详情</div>
+        <div class="tab-item" onclick="switchTab('comment')">评论</div>
+    </div>
+
+    <!-- 详情Tab内容（默认显示） -->
+    <div id="detail-content" class="tab-content active">
+        <div class="screenshots">
+            <img src="img/screenshot1.png" class="screenshot" alt="界面截图1">
+            <img src="img/screenshot2.png" class="screenshot" alt="界面截图2">
+            <img src="img/screenshot3.png" class="screenshot" alt="界面截图3">
+        </div>
+        <div class="app-intro">
+            <p>一款清新风格的短视频APP，界面简洁无广告，专注于优质内容推荐，支持高清播放与互动点赞，轻遇美好，慢看生活。</p>
+        </div>
+        <div class="app-version-info">
+            <div>版本：1.0.0</div>
+            <div>更新时间：2025-12-15</div>
+            <div><a href="#" style="color:#00C853">隐私政策</a> | <a href="#" style="color:#00C853">应用权限</a></div>
+        </div>
+    </div>
+
+    <!-- 评论Tab内容（默认隐藏） -->
+    <div id="comment-content" class="tab-content">
+        <div class="score-board">
+            <div class="score-main">4.0</div>
+            <div class="score-info">
+                <div class="score-count">2.4万条评价</div>
+                <div class="star-bars">
+                    <div class="star-bar" style="width:85%"></div>
+                    <div class="star-bar" style="width:10%"></div>
+                    <div class="star-bar" style="width:3%"></div>
+                    <div class="star-bar" style="width:1%"></div>
+                    <div class="star-bar" style="width:1%"></div>
+                </div>
+            </div>
+        </div>
+        <div class="comment-filters">
+            <span class="filter active">全部</span>
+            <span class="filter">好评(1.7万)</span>
+            <span class="filter">差评(6927)</span>
+        </div>
+        <div class="comment-list">
+            <div class="comment-item">
+                <div class="comment-user">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name">22***50</div>
+                        <div class="comment-time">2025-10-23</div>
+                    </div>
+                    <div class="comment-like">👍 1570</div>
+                </div>
+                <div class="comment-stars">★★★★★</div>
+                <div class="comment-text">界面良心，无广告，用起来太舒服了！</div>
+            </div>
+            <div class="comment-item">
+                <div class="comment-user">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name">24***90</div>
+                        <div class="comment-time">2025-10-18</div>
+                    </div>
+                    <div class="comment-like">👍 752</div>
+                </div>
+                <div class="comment-stars">★★★★★</div>
+                <div class="comment-text">推荐！没有乱七八糟的弹窗，视频加载也很快。</div>
+            </div>
+            <div class="comment-item">
+                <div class="comment-user">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name">26***72</div>
+                        <div class="comment-time">2021-12-08</div>
+                    </div>
+                    <div class="comment-like">👍 58155</div>
+                </div>
+                <div class="comment-stars">★★★★★</div>
+                <div class="comment-text">用了好几年了，一直很稳定，界面清新，值得下载！</div>
+            </div>
+            <div class="comment-item">
+                <div class="comment-user">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name">13***45</div>
+                        <div class="comment-time">2025-11-05</div>
+                    </div>
+                    <div class="comment-like">👍 3241</div>
+                </div>
+                <div class="comment-stars">★★★★★</div>
+                <div class="comment-text">无广告太香了！推荐给身边的朋友都在用。</div>
+            </div>
+            <div class="comment-item">
+                <div class="comment-user">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name">09***87</div>
+                        <div class="comment-time">2025-12-01</div>
+                    </div>
+                    <div class="comment-like">👍 2109</div>
+                </div>
+                <div class="comment-stars">★★★★★</div>
+                <div class="comment-text">界面设计很舒服，短视频内容也很优质，爱了爱了。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部安装/打开按钮 -->
+    <div class="bottom-action-bar">
+        <button class="install-btn" id="action-btn" onclick="startDownload()">安装</button>
+    </div>
+    <script>
+        window.onload = function() {
+    startPageTimer('page2'); // 改成page2
+};
+window.onbeforeunload = function() {
+    endPageTimer('page2');
+};
+    </script>
+
+
+    <script src="script.js"></script>
+
+    
+</body>
+</html>
